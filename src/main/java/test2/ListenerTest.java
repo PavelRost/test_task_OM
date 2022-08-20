@@ -12,8 +12,8 @@ public class ListenerTest implements ITestListener {
     @Override
     public void onTestSuccess(ITestResult result) {
         try {
-            Method methodReal = result.getMethod().getRealClass().getMethod(result.getName());
-            TestMethodInfo annotations = methodReal.getAnnotation(TestMethodInfo.class);
+            Method method = result.getMethod().getRealClass().getMethod(result.getName());
+            TestMethodInfo annotations = method.getAnnotation(TestMethodInfo.class);
             System.out.println(annotations.priority());
             System.out.println(annotations.author());
             System.out.println(annotations.lastModified());
